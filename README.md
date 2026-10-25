@@ -7,13 +7,29 @@ S1 Sains Data, Universitas Telkom Purwokerto.
 ## Contents
 | File | Description |
 |---|---|
-| `MAX_ITER.ipynb` | Benchmark experiment of ADIWACO-PSO, PSO, TVAC-PSO, and CLPSO on 10 test functions at dimensions 2, 5, 10, and 30 |
+| `MAX_ITER.ipynb` | Benchmark experiment of ADIWACO-PSO, PSO, TVAC-PSO, and CLPSO on 10 benchmark functions (26 function–dimension scenarios) |
 | `ADIWACO_SVM_BankChurners.ipynb` | SVM-RBF hyperparameter optimization (C, γ) with ADIWACO-PSO on BankChurners |
 
 ## Method summary
 - Adaptive inertia weight and acceleration coefficients based on the relative fitness gap between pBest and gBest, following Sekyere et al.
 - Benchmark: 26 function–dimension scenarios, evaluated with optimum value, mean, standard deviation, runtime, and the Wilcoxon rank-sum test.
 - SVM: 60/20/20 train/validation/test split, SMOTE on the training set, 500 particles, 100 iterations, 100 independent runs.
+
+## Benchmark functions
+| No | Function | Type | Formula | Search domain | Global minimum | Dimensions |
+|---|---|---|---|---|---|---|
+| f1 | Schwefel 2.22 | Unimodal | $\sum_{i=1}^{n}\lvert x_i\rvert + \prod_{i=1}^{n}\lvert x_i\rvert$ | $[-10, 10]^n$ | $0$ | 2, 10, 30 |
+| f2 | Zakharov | Unimodal | $\sum_{i=1}^{n}x_i^2 + \left(\sum_{i=1}^{n}0.5\,i\,x_i\right)^2 + \left(\sum_{i=1}^{n}0.5\,i\,x_i\right)^4$ | $[-10, 10]^n$ | $0$ | 2, 10, 30 |
+| f3 | Dixon-Price | Unimodal | $(x_1-1)^2 + \sum_{i=2}^{n} i\,(2x_i^2 - x_{i-1})^2$ | $[-10, 10]^n$ | $0$ | 2, 10, 30 |
+| f4 | Booth | Unimodal | $(x_1+2x_2-7)^2 + (2x_1+x_2-5)^2$ | $[-10, 10]^2$ | $0$ | 2 |
+| f5 | Trid | Unimodal | $\sum_{i=1}^{n}(x_i-1)^2 - \sum_{i=2}^{n}x_i x_{i-1}$ | $[-n^2, n^2]^n$ | $-n(n+4)(n-1)/6$ | 2, 10, 30 |
+| f6 | Rastrigin | Multimodal | $10n + \sum_{i=1}^{n}\left[x_i^2 - 10\cos(2\pi x_i)\right]$ | $[-5.12, 5.12]^n$ | $0$ | 2, 10, 30 |
+| f7 | Ackley N.1 | Multimodal | $-20\exp\left(-0.2\sqrt{\frac{1}{n}\sum_{i=1}^{n}x_i^2}\right) - \exp\left(\frac{1}{n}\sum_{i=1}^{n}\cos 2\pi x_i\right) + 20 + e$ | $[-32.768, 32.768]^n$ | $0$ | 2, 10, 30 |
+| f8 | Styblinski-Tang | Multimodal | $\frac{1}{2}\sum_{i=1}^{n}\left(x_i^4 - 16x_i^2 + 5x_i\right)$ | $[-5, 5]^n$ | $\approx -39.166\,n$ | 2, 10, 30 |
+| f9 | Michalewicz | Multimodal | $-\sum_{i=1}^{n}\sin(x_i)\left[\sin\left(i\,x_i^2/\pi\right)\right]^{2m}$ | $[0, \pi]^n$ | $-1.8013$ (n=2), $-4.6876$ (n=5), $-9.6601$ (n=10) | 2, 5, 10 |
+| f10 | Levy N.13 | Multimodal | $\sin^2(3\pi x_1) + (x_1-1)^2\left[1+\sin^2(3\pi x_2)\right] + (x_2-1)^2\left[1+\sin^2(2\pi x_2)\right]$ | $[-10, 10]^2$ | $0$ | 2 |
+
+The combinations give 26 function–dimension scenarios. Function definitions follow the standard forms compiled by Naser et al.
 
 ## Research flow
 ```mermaid
