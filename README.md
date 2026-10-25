@@ -99,4 +99,3 @@ Python 3, numpy, pandas, scikit-learn, imbalanced-learn, scipy, matplotlib
 
 ## Author
 Rosa Nur Aliana Sawafi
-Supervisors: Aina Latifa, Diah Septiani
